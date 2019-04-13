@@ -46,7 +46,7 @@ public class Nie extends TarjetaDocumentacion{
 
     @Override
     public String getParteNumerica() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getNie().substring(1,getNie().length());
     }
 
     @Override

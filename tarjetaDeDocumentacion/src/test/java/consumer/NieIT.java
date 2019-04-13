@@ -22,6 +22,8 @@ public class NieIT {
     
     @Test
     public void testGetParteNumerica() {
+        Nie nie = new Nie("X1234567");
+        assertEquals("1234567", nie.getParteNumerica());
     }
 
     
