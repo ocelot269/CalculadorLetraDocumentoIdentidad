@@ -1,11 +1,12 @@
 package consumer;
 
 import clases.TablaAsignacionLetra;
+import clases.TarjetaDocumentacion;
 import interfaces.Validable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Dni implements Validable {
+public class Dni extends TarjetaDocumentacion implements Validable {
 
     //variables
     private String dni;
@@ -16,6 +17,7 @@ public class Dni implements Validable {
     
     
     public Dni() {
+        super();
     }
 
     //Constructor
@@ -47,7 +49,8 @@ public class Dni implements Validable {
     
     
     //Inicio logica
-    public char getLetraDni() { // obtiene la letra del dni si el dni es valido y te la devuelve como char
+    @Override
+    public char getLetraDocumentacion() { // obtiene la letra del dni si el dni es valido y te la devuelve como char
         char letra = 0;
         
         if (validadorDocumentoIdentidad()) {
@@ -60,7 +63,9 @@ public class Dni implements Validable {
         
         return letra;
     }
-
+    
+    
+    @Override
     public String getParteNumerica() {      //Recoge del dni pasado que esté correctamente escrito y te devuelve el string
         
         String digitosDni =null;
@@ -70,11 +75,13 @@ public class Dni implements Validable {
         }
         return digitosDni;
     }
-
-    public String getObtenerLetraDni() {
+    
+    @Override
+    public String getObtenerLetraDocumentacion() {
         return getTablaAsignacion().calcularLetraDni(getParteNumerica());
     }
 
+    
     @Override
     public boolean validadorDocumentoIdentidad(String Dni) { //Te valida que el String que le pases se ha valido
         
