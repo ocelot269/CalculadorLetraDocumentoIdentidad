@@ -85,7 +85,7 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     @Override
     public boolean validadorDocumentoIdentidad(String Dni) { //Te valida que el String que le pases se ha valido
         
-        Pattern validatorDni = Pattern.compile("^[0-9]{8,8}[^IÑOUa-z]");
+        Pattern validatorDni = Pattern.compile("^[0-9]{8,8}[^IÑOUa-z]$");
         Matcher comparador = validatorDni.matcher(Dni);
 
         return comparador.matches();
@@ -94,7 +94,7 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     @Override
     public boolean validadorDocumentoIdentidad() { //Te valida que el patron que comprueba se a correcto
         
-        Pattern validatorDni = Pattern.compile("^[0-9]{8,8}[^IÑOUa-z]");
+        Pattern validatorDni = Pattern.compile("^[0-9]{8,8}[^IÑOUa-z]$");
         Matcher comparador = validatorDni.matcher(getDni());
 
         return comparador.matches();

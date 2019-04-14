@@ -1,58 +1,71 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package consumer;
 
+import clases.TablaAsignacionLetra;
 import clases.TarjetaDocumentacion;
+import interfaces.Validable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-
-public class Nie extends TarjetaDocumentacion{
+public class Nie extends TarjetaDocumentacion implements Validable{
 
     //Variables
-    private String nie=null;
-    
+    private String nie = "";
+    private TablaAsignacionLetra tabla = new TablaAsignacionLetra();
+
     //Constructor
-    
-    public Nie(){
+    public Nie() {
         super();
     }
-    
+
     //Constructor
-    
-    public Nie(String nie){
+    public Nie(String nie) {
         setNie(nie);
     }
-    
+
     //Inicio Getters y setters
-    
-    
+    public TablaAsignacionLetra getTabla() {
+        return tabla;
+    }
+
     public String getNie() {
         return nie;
     }
 
-    
     public void setNie(String nie) {
         this.nie = nie;
     }
-    
-    
+
     //Fin getters y setters
     @Override
     public char getLetraDocumentacion() {
-      return getNie().charAt(0);
+        return getNie().charAt(0);
     }
 
     @Override
     public String getParteNumerica() {
-        return getNie().substring(1,getNie().length());
+        return getNie().substring(1, getNie().length());
     }
 
     @Override
     public String getObtenerLetraDocumentacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getTabla().calcularLetraNie(this);
+
     }
 
-  
+    @Override
+    public boolean validadorDocumentoIdentidad() {
+       Pattern validatorDni = Pattern.compile("^[XYZ]{1}[0-9]{7}[^IÑOU]{1,1}$");
+        Matcher comparador = validatorDni.matcher(getNie());
+
+        return comparador.matches();
+    }
+
+    @Override
+    public boolean validadorDocumentoIdentidad(String Dni) {
+        Pattern validatorDni = Pattern.compile("^[XYZ]{1}[0-9]{7}[^IÑOU]{1,1}$");
+        Matcher comparador = validatorDni.matcher(Dni);
+
+        return comparador.matches();
+    }
 }
+
