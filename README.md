@@ -1,34 +1,42 @@
 # CalculadorLetraDocumentoIdentidad
 Este proyecto trata de aplicar programacion orientada por casos test y aplicar SOLID
 
-#Historias de usuario NIE
+# Historias de usuario NIE
 
-## Quien
+## 1Historia
+
+### Quien
 el usuario
-## que quiere
+### que quiere
 comprobar si el nie esta bien escrito
-##para que
+### para que
 decirselo asegurarse
 
-## Quien
+## 2Historia
+
+### Quien
 el usuario
-## que quiere
+### que quiere
 comprobar si la ultima letra de su nie es correcta
-##para que
+### para que
 para poder crearse una cuenta bancaria
 
-## Quien
+# Historias de usuario DNI
+
+## 1 Historia
+
+### Quien
 el usuario
-## que quiere
+### que quiere
 comprobar si el nie esta bien escrito
-##para que
+### para que
 decirselo asegurarse
 
-#Historias de usuario DNI
+## 2 Historia
 
-## Quien
+### Quien
 el usuario
-## que quiere
-comprobar si la ultima letra de su nie es correcta
-##para que
+### que quiere
+comprobar si la ultima letra de su dni es correcta
+### para que
 para poder crearse una cuenta bancaria
