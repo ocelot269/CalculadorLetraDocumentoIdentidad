@@ -55,7 +55,7 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     
     //Inicio logica
     @Override
-    public char getLetraDocumentacion() { // obtiene la letra del dni si el dni es valido y te la devuelve como char
+    public char getPrimeraLetraDocumentacion() { // obtiene la letra del dni si el dni es valido y te la devuelve como char
         char letra = 0;
         
         if (validadorDocumentoIdentidad()) {
@@ -82,7 +82,7 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     }
     
     @Override
-    public String getObtenerLetraDocumentacion() {
+    public String getObtenerLetraDocumentacion() { //Te obtiene la letra de control
         getTablaAsignacionLetra();
         return getTabla().calcularLetraDni(getParteNumerica());
     }

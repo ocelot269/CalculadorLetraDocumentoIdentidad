@@ -18,7 +18,7 @@ public class DniIT {
     @Test
     public void testGetLetraDocumentacion() {
         Dni documento = new Dni("43224953H");
-        assertEquals('H', documento.getLetraDocumentacion());
+        assertEquals('H', documento.getPrimeraLetraDocumentacion());
         // assertEquals('z', documento.getLetraDni());
     }
 

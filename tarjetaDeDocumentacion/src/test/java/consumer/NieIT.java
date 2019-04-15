@@ -17,8 +17,8 @@ public class NieIT {
 
     @Test
     public void testGetLetraDocumentacion() {
-        Nie nie = new Nie("X1234567");
-        assertEquals('X', nie.getLetraDocumentacion());
+        Nie nie = new Nie("X1234567h");
+        assertEquals('X', nie.getPrimeraLetraDocumentacion());
     }
 
     @Test

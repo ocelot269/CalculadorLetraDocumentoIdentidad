@@ -14,6 +14,8 @@ public class TablaAsignacionLetra {
     private String resultado = "";
 
     //Getters y setters
+    
+    
     public String getResultado() {
         return resultado;
     }
@@ -48,11 +50,11 @@ public class TablaAsignacionLetra {
 
     }
 
-    public int getLongitudDni() {
+    public int getLongitudDni() { //Te dice la longitud del dni
         return this.getLetrasDni().length;
     }
 
-    public String calcularLetraDni(String digitos_dni) {
+    public String calcularLetraDni(String digitos_dni) { //calcular letra de control del dni(La ultima)
         int digitos = Integer.parseInt(digitos_dni);
         int calculo = digitos % getLongitudDni();
         return getLetraDni(calculo);
@@ -60,39 +62,39 @@ public class TablaAsignacionLetra {
     }
 
     
-    public void eliminarUltimaLetra(){
-        setResultado(getResultado().substring(0, getResultado().length() - 1));
+    public void eliminarUltimaLetra() {
+        setResultado(getResultado().substring(0, getResultado().length() - 1)); //Elimina la ultima letra del nie
     }
-    public String replazarLetrasPorValor(Nie nie) {
-        switch (nie.getLetraDocumentacion()) {
+
+    
+    public String replazarLetrasPorValor(Nie nie) { //replaza las letra X/Y/Z por su valor
+        
+        switch (nie.getPrimeraLetraDocumentacion()) {
             case 'X':
-                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()), "0"));
+                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getPrimeraLetraDocumentacion()), "0"));
                 break;
 
             case 'Y':
 
-                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()), "1"));
+                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getPrimeraLetraDocumentacion()), "1"));
                 break;
 
             case 'Z':
 
-                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()), "2"));
+                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getPrimeraLetraDocumentacion()), "2"));
                 break;
         }
 
-               
-        
-         return getResultado();
+        return getResultado();
     }
 
-    //Falta refactorizar
-    public String calcularLetraNie(Nie nie) {
+    
+    public String calcularLetraNie(Nie nie) { //te obtiene la ultima letra
         int calculo = 0;
-                replazarLetrasPorValor(nie);
-                eliminarUltimaLetra();
-                calculo = Integer.parseInt(getResultado()) % getLongitudDni();
-                setResultado(getLetraDni(calculo));
-                
+        replazarLetrasPorValor(nie);
+        eliminarUltimaLetra();
+        calculo = Integer.parseInt(getResultado()) % getLongitudDni();
+        setResultado(getLetraDni(calculo));
 
         return getResultado();
 
