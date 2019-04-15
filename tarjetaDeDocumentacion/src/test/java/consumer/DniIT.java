@@ -35,7 +35,7 @@ public class DniIT {
         tabla.setTablaAsignacion();
       
         assertEquals("H", tabla.calcularLetraDni("43224953"));
-        documento.getTablaAsignacion().setTablaAsignacion();
+        
         assertEquals("H",documento.getObtenerLetraDocumentacion());
         
     }

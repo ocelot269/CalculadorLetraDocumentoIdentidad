@@ -10,8 +10,22 @@ public class TablaAsignacionLetra {
 
     private String[] letrasDni = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B",
         "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
+    
+    private String resultado ="";
 
     //Getters y setters
+    
+    
+    public String getResultado() {
+        return resultado;
+    }
+
+    
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+    
+    
     public HashMap<Integer, String> getDocumento() {
         return documento;
     }
@@ -48,35 +62,40 @@ public class TablaAsignacionLetra {
         return getLetraDni(calculo);
 
     }
-
+                                    //Falta refactorizar
     public String calcularLetraNie(Nie nie) {
-        int digitos = Integer.parseInt(nie.getParteNumerica());
-        int calculo = digitos % getLongitudDni();
+        int digitos=0 ;
+        int calculo =0 ;
         String resultado = "";
-
-        if (nie.getLetraDocumentacion() == 'X') {
-            resultado = getLetraDni(calculo);
+        
+        switch(nie.getLetraDocumentacion()){
+            case 'X':
+              setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()),"0"));
+              setResultado(getResultado().substring(0, getResultado().length()-1));
+              calculo = Integer.parseInt(getResultado()) % getLongitudDni();
+              setResultado(getLetraDni(calculo));
+              break;
             
-        } else if (nie.getLetraDocumentacion() == 'Y') {
-            
-           String cambio = nie.getNie().replaceFirst("Y", "1");
-           
-            calculo = Integer.parseInt(cambio) % getLongitudDni();
-            
-            resultado = getLetraDni(calculo);
-            
-        } else if (nie.getLetraDocumentacion() == 'Z') {
-            
-            String cambio = nie.getNie().replaceFirst("Z", "2");
-           
-            calculo = Integer.parseInt(cambio) % getLongitudDni();
-            
-            resultado = getLetraDni(calculo);
-
-        } else {
-
+            case 'Y':
+              
+              setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()),"1"));
+              setResultado(getResultado().substring(0, getResultado().length()-1));
+              calculo = Integer.parseInt(getResultado()) % getLongitudDni();
+              setResultado(getLetraDni(calculo));
+              break;
+              
+            case 'Z':
+              
+              setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()),"2"));
+              setResultado(getResultado().substring(0, getResultado().length()-1));
+              calculo = Integer.parseInt(getResultado()) % getLongitudDni();
+              setResultado(getLetraDni(calculo));
+                break;
         }
-        return resultado;
+        
+        
+        return getResultado();
+
 
     }
 

@@ -78,6 +78,7 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     
     @Override
     public String getObtenerLetraDocumentacion() {
+        getTablaAsignacion().setTablaAsignacion();
         return getTablaAsignacion().calcularLetraDni(getParteNumerica());
     }
 

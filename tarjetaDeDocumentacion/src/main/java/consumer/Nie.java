@@ -43,20 +43,22 @@ public class Nie extends TarjetaDocumentacion implements Validable{
 
     @Override
     public String getParteNumerica() {
-        return getNie().substring(1, getNie().length());
+        
+        return getNie().substring(1, getNie().length()-1);
     }
 
     @Override
     public String getObtenerLetraDocumentacion() {
+        getTabla().setTablaAsignacion();
         return getTabla().calcularLetraNie(this);
 
     }
 
     @Override
     public boolean validadorDocumentoIdentidad() {
-       Pattern validatorDni = Pattern.compile("^[XYZ]{1}[0-9]{7}[^IÑOU]{1,1}$");
+        Pattern validatorDni = Pattern.compile("^[XYZ]{1}[0-9]{7}[^IÑOU]{1,1}$");
         Matcher comparador = validatorDni.matcher(getNie());
-
+        
         return comparador.matches();
     }
 
