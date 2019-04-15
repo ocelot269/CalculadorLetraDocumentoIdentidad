@@ -3,7 +3,7 @@ Este proyecto trata de aplicar programacion orientada por casos test y aplicar S
 
 # Historias de usuario NIE
 
-## 1Historia
+## 1 Historia
 
 ### Quien
 el usuario
@@ -12,7 +12,7 @@ comprobar si el nie esta bien escrito
 ### para que
 decirselo asegurarse
 
-## 2Historia
+## 2 Historia
 
 ### Quien
 el usuario
