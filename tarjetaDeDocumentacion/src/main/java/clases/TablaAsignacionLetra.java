@@ -55,7 +55,7 @@ public class TablaAsignacionLetra {
     }
 
     public String calcularLetraDni(String digitos_dni) { //calcular letra de control del dni(La ultima)
-        int digitos = Integer.parseInt(digitos_dni);
+        int digitos = Integer.parseInt(digitos_dni.substring(0, digitos_dni.length()-1));
         int calculo = digitos % getLongitudDni();
         return getLetraDni(calculo);
 

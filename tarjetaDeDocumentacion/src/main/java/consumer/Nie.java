@@ -41,6 +41,8 @@ public class Nie extends TarjetaDocumentacion implements Validable{
     }
 
     //Fin getters y setters
+    
+    //Logica
     @Override
     public char getPrimeraLetraDocumentacion() { //Obtienes la primera letra
         return getNie().charAt(0);
@@ -53,12 +55,21 @@ public class Nie extends TarjetaDocumentacion implements Validable{
     }
 
     @Override
-    public String getObtenerLetraDocumentacion() { //Obtiene la letra de control del nie
-        getTablaAsignacion();
-        return getTabla().calcularLetraNie(this);
+    public String getObtenerLetraDocumentacion() { //verifica que el nie esta correctamente escrito y obtiene la letra de control del nie
+        if (validadorDocumentoIdentidad()) {
+            getTablaAsignacion();
+            setNie(getTabla().calcularLetraNie(this));
+            
+        } else {
+            System.out.println("Error,Nie no valido");
+        }
+        
+        return getNie();
 
     }
-
+    
+    
+    //Expresiones regulares
     @Override
     public boolean validadorDocumentoIdentidad() { //Te valida el que nie esté bien escrito
         Pattern validatorDni = Pattern.compile("^[XYZ]{1}[0-9]{7}[^IÑOU]{1,1}$");
