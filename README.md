@@ -28,7 +28,7 @@ para poder crearse una cuenta bancaria
 ### Quien
 el usuario
 ### que quiere
-comprobar si el nie esta bien escrito
+comprobar si el dni esta bien escrito
 ### para que
 decirselo asegurarse
 
