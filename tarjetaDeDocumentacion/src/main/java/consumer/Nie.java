@@ -30,6 +30,11 @@ public class Nie extends TarjetaDocumentacion implements Validable{
     public String getNie() {
         return nie;
     }
+    
+    
+    public void getTablaAsignacion() {
+        getTabla().setTablaAsignacion();
+    }
 
     public void setNie(String nie) {
         this.nie = nie;
@@ -49,7 +54,7 @@ public class Nie extends TarjetaDocumentacion implements Validable{
 
     @Override
     public String getObtenerLetraDocumentacion() {
-        getTabla().setTablaAsignacion();
+        getTablaAsignacion();
         return getTabla().calcularLetraNie(this);
 
     }

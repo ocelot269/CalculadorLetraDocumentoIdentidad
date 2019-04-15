@@ -10,22 +10,18 @@ public class TablaAsignacionLetra {
 
     private String[] letrasDni = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B",
         "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
-    
-    private String resultado ="";
+
+    private String resultado = "";
 
     //Getters y setters
-    
-    
     public String getResultado() {
         return resultado;
     }
 
-    
     public void setResultado(String resultado) {
         this.resultado = resultado;
     }
-    
-    
+
     public HashMap<Integer, String> getDocumento() {
         return documento;
     }
@@ -62,40 +58,43 @@ public class TablaAsignacionLetra {
         return getLetraDni(calculo);
 
     }
-                                    //Falta refactorizar
-    public String calcularLetraNie(Nie nie) {
-        int digitos=0 ;
-        int calculo =0 ;
-        String resultado = "";
-        
-        switch(nie.getLetraDocumentacion()){
+
+    
+    public void eliminarUltimaLetra(){
+        setResultado(getResultado().substring(0, getResultado().length() - 1));
+    }
+    public String replazarLetrasPorValor(Nie nie) {
+        switch (nie.getLetraDocumentacion()) {
             case 'X':
-              setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()),"0"));
-              setResultado(getResultado().substring(0, getResultado().length()-1));
-              calculo = Integer.parseInt(getResultado()) % getLongitudDni();
-              setResultado(getLetraDni(calculo));
-              break;
-            
+                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()), "0"));
+                break;
+
             case 'Y':
-              
-              setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()),"1"));
-              setResultado(getResultado().substring(0, getResultado().length()-1));
-              calculo = Integer.parseInt(getResultado()) % getLongitudDni();
-              setResultado(getLetraDni(calculo));
-              break;
-              
+
+                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()), "1"));
+                break;
+
             case 'Z':
-              
-              setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()),"2"));
-              setResultado(getResultado().substring(0, getResultado().length()-1));
-              calculo = Integer.parseInt(getResultado()) % getLongitudDni();
-              setResultado(getLetraDni(calculo));
+
+                setResultado(nie.getNie().replaceFirst(String.valueOf(nie.getLetraDocumentacion()), "2"));
                 break;
         }
-        
-        
-        return getResultado();
 
+               
+        
+         return getResultado();
+    }
+
+    //Falta refactorizar
+    public String calcularLetraNie(Nie nie) {
+        int calculo = 0;
+                replazarLetrasPorValor(nie);
+                eliminarUltimaLetra();
+                calculo = Integer.parseInt(getResultado()) % getLongitudDni();
+                setResultado(getLetraDni(calculo));
+                
+
+        return getResultado();
 
     }
 

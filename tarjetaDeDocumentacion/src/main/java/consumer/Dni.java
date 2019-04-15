@@ -36,10 +36,15 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     }
 
     
-    public TablaAsignacionLetra getTablaAsignacion() {
+    
+    public TablaAsignacionLetra getTabla() {
         return tablaAsignacion;
     }
-
+    
+    
+    public void getTablaAsignacionLetra() {
+        getTabla().setTablaAsignacion();
+    }
     
     public String getDni() {
         return this.dni;
@@ -78,8 +83,8 @@ public class Dni extends TarjetaDocumentacion implements Validable {
     
     @Override
     public String getObtenerLetraDocumentacion() {
-        getTablaAsignacion().setTablaAsignacion();
-        return getTablaAsignacion().calcularLetraDni(getParteNumerica());
+        getTablaAsignacionLetra();
+        return getTabla().calcularLetraDni(getParteNumerica());
     }
 
     
