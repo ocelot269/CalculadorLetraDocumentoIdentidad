@@ -10,7 +10,7 @@ public abstract class TarjetaDocumentacion {
     public TarjetaDocumentacion() {
     }
 
-    public abstract char getPrimeraLetraDocumentacion();
+    public abstract char getUltimaLetraDocumentacion();
     public abstract String getParteNumerica();
     public abstract String getObtenerLetraDocumentacion();
 }

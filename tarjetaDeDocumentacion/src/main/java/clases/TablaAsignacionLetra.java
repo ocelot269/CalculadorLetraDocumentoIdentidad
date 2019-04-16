@@ -67,7 +67,7 @@ public class TablaAsignacionLetra {
     }
 
     
-    public String replazarLetrasPorValor(Nie nie) { //replaza las letra X/Y/Z por su valor
+    public String reemplazarLetrasPorValor(Nie nie) { //replaza las letra X/Y/Z por su valor
         
         switch (nie.getPrimeraLetraDocumentacion()) {
             case 'X':
@@ -91,7 +91,7 @@ public class TablaAsignacionLetra {
     
     public String calcularLetraNie(Nie nie) { //te obtiene la ultima letra
         int calculo = 0;
-        replazarLetrasPorValor(nie);
+        reemplazarLetrasPorValor(nie);
         eliminarUltimaLetra();
         calculo = Integer.parseInt(getResultado()) % getLongitudDni();
         setResultado(getLetraDni(calculo));

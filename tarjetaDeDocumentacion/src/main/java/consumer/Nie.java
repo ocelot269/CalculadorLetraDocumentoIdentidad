@@ -44,6 +44,11 @@ public class Nie extends TarjetaDocumentacion implements Validable{
     
     //Logica
     @Override
+    public char getUltimaLetraDocumentacion() {
+        return getNie().charAt(getNie().length()-1);
+    }
+    
+    
     public char getPrimeraLetraDocumentacion() { //Obtienes la primera letra
         return getNie().charAt(0);
     }

@@ -47,19 +47,19 @@ public class tablaAsignacionLetraIT {
         TablaAsignacionLetra tabla = new TablaAsignacionLetra();
         Nie nie = new Nie("X1234567H");
         tabla.setTablaAsignacion();
-        tabla.replazarLetrasPorValor(nie);
+        tabla.reemplazarLetrasPorValor(nie);
         assertEquals("01234567H", tabla.getResultado());
         
         TablaAsignacionLetra tabla1 = new TablaAsignacionLetra();
         Nie nie1 = new Nie("Y1234567H");
         tabla1.setTablaAsignacion();
-        tabla1.replazarLetrasPorValor(nie1);
+        tabla1.reemplazarLetrasPorValor(nie1);
         assertEquals("11234567H", tabla1.getResultado());
         
         TablaAsignacionLetra tabla2 = new TablaAsignacionLetra();
         Nie nie2 = new Nie("Z1234567H");
         tabla2.setTablaAsignacion();
-        tabla2.replazarLetrasPorValor(nie2);
+        tabla2.reemplazarLetrasPorValor(nie2);
         assertEquals("21234567H", tabla2.getResultado());
         
     }

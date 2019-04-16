@@ -60,7 +60,13 @@ public class NieIT {
             assertEquals(true, nie5.validadorDocumentoIdentidad());
             }
         
-    
+    @Test
+        public void testgetUltimaLetraDocumentacion(){
+           Nie nie = new Nie("X4322495H");
+           assertEquals('H', nie.getUltimaLetraDocumentacion());
+            
+        }
+        
 //     @Test
 //        public void testValidadorDocumentoIdentidad1() {
 //		List<String> niesLista = Arrays.asList("Z3149115Y", "X0149115Y", "X3735122Z", "X4821048H", "Y3894320C",
